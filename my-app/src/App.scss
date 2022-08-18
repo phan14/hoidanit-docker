@@ -10,6 +10,8 @@ body {
 .app-container {
   .header-container {
     .navbar-nav {
+      z-index: 10;
+      opacity: 2;
       .nav-link {
         &.active {
           color: red;
