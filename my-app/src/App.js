@@ -1,6 +1,6 @@
 import './App.scss';
 import Header from './components/Header/Header';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 
@@ -8,9 +8,9 @@ const App = () => {
   return (
     <div className="app-container">
       <div className='header-container'>
-
+        <Header />
       </div>
-      <Header />
+
       <div className='main-container'>
         <div className='sidenav-container'>
 
@@ -20,16 +20,7 @@ const App = () => {
         </div>
       </div>
 
-      {/* <div>
-        test link
-        <div>
-          <button> <Link to="/users">go to user page</Link>
-          </button>
 
-          <button> <Link to="/admins">go to admin page</Link>
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 }

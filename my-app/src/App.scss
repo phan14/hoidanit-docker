@@ -6,3 +6,21 @@ body {
   --webkit-fornt-smoothing: antialiased;
   --moz-osx-font-smoothing: grayscale;
 }
+
+.app-container {
+  .header-container {
+    .navbar-nav {
+      .nav-link {
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+  .main-container {
+    .sidenav-container {
+    }
+    .app-content {
+    }
+  }
+}
