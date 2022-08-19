@@ -11,6 +11,8 @@ import {
 import User from './components/User/Uses';
 import Admin from './components/Admin/Admin';
 import Homepage from './components/Home/Homepage';
+import ManagaUsers from './components/Admin/Content/ManagaUsers';
+import DashBoard from './components/Admin/Content/DashBoard';
 
 
 
@@ -21,7 +23,14 @@ ReactDOM.render(
         <Route index element={<Homepage />} />
         <Route path="users" element={<User />} />
       </Route>
-      <Route path="admins" element={<Admin />} />
+
+      <Route path="/admins" element={<Admin />} >
+        <Route index element={<DashBoard />} />
+        <Route path="manage-users" element={<ManagaUsers />} />
+
+      </Route>
+
+
 
     </Routes>
 
