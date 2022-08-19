@@ -7,11 +7,42 @@ body {
   --moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 1280px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1200px !important;
+  }
+}
+
 .app-container {
   .header-container {
-    .navbar-nav {
+    .btn-login {
+      border-radius: 5px;
+      margin-right: 15px;
+      padding: 0 15px;
+      border: 1px solid #535353;
+      height: 40px;
+    }
+
+    .btn-logout {
+      border-radius: 5px;
+      padding: 0 15px;
+      background-color: #000000;
+      color: #fff;
+      height: 40px;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .navbar {
       z-index: 10;
-      opacity: 2;
+      padding-top: 20px;
+      background-color: rgba($color: #000000, $alpha: 0) !important;
       .nav-link {
         &.active {
           color: red;
@@ -19,10 +50,51 @@ body {
       }
     }
   }
+
+  .homepage-container {
+    .homepage-content {
+      position: relative;
+      padding: 100px;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title-1 {
+        font-size: 35px;
+        font-weight: 400;
+      }
+
+      .title-2 {
+        font-size: 22px;
+      }
+
+      .title-3 {
+        button {
+          border-radius: 5px;
+          padding: 0 15px;
+          background-color: #000000;
+          color: #fff;
+          height: 40px;
+          transition: 0.5s;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
   .main-container {
     .sidenav-container {
     }
     .app-content {
     }
   }
+}
+video {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
