@@ -1,7 +1,7 @@
-import SiderBar from "./SiderBar";
 import "./admin.scss";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
+import SiderBar from "./SiderBar";
 
 const Admin = (props) => {
   const [collapsed, setCollpased] = useState(false);

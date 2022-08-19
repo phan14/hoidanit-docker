@@ -1,4 +1,5 @@
 import "react-pro-sidebar/dist/css/styles.css";
+
 import {
   ProSidebar,
   Menu,
@@ -18,6 +19,9 @@ import {
   FaHeart,
 } from "react-icons/fa";
 import sidebarBg from "../../asset/bg2.jpg";
+
+import { DiReact } from "react-icons/di";
+import { MdDashboard } from "react-icons/md";
 
 const SiderBar = (props) => {
   const { image, collapsed, toggled, handleToggleSidebar } = props;
@@ -43,36 +47,25 @@ const SiderBar = (props) => {
               whiteSpace: "nowrap",
             }}
           >
-            Tran Dang Dinh
+            <DiReact size={"3rem"} color={"00bff"} />
+            <span> Tran Dang Dinh</span>
           </div>
         </SidebarHeader>
 
         <SidebarContent>
           <Menu iconShape="circle">
             <MenuItem
-              icon={<FaTachometerAlt />}
+              icon={<MdDashboard />}
               suffix={<span className="badge red">New</span>}
             >
-              dashboard
+              Dashboard
             </MenuItem>
-            <MenuItem icon={<FaGem />}>componets</MenuItem>
           </Menu>
           <Menu iconShape="circle">
-            <SubMenu
-              suffix={<span className="badge yellow">3</span>}
-              icon={<FaRegLaughWink />}
-            >
-              <MenuItem> 1</MenuItem>
-              <MenuItem>2</MenuItem>
-              <MenuItem> 3</MenuItem>
-            </SubMenu>
-            <SubMenu
-              prefix={<span className="badge gray">3</span>}
-              icon={<FaHeart />}
-            >
-              <MenuItem> 1</MenuItem>
-              <MenuItem> 2</MenuItem>
-              <MenuItem> 3</MenuItem>
+            <SubMenu icon={<FaGem />} title="Features">
+              <MenuItem> Quản lý User</MenuItem>
+              <MenuItem> Quản lý Bài Quiz </MenuItem>
+              <MenuItem> Quản lý Câu Hỏi </MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
@@ -85,12 +78,11 @@ const SiderBar = (props) => {
             }}
           >
             <a
-              href="https://github.com/azouaoui-med/react-pro-sidebar"
+              href="#"
               target="_blank"
               className="sidebar-btn"
               rel="noopener noreferrer"
             >
-              <FaGithub />
               <span
                 style={{
                   whiteSpace: "nowrap",
@@ -98,7 +90,7 @@ const SiderBar = (props) => {
                   overflow: "hidden",
                 }}
               >
-                viewSource
+                &#169; Trần Đăng Đình
               </span>
             </a>
           </div>
