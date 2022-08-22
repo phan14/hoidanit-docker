@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { FcPlus } from "react-icons/fc";
 
 const ModalCreateUser = () => {
   const [show, setShow] = useState(false);
@@ -8,13 +9,35 @@ const ModalCreateUser = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("");
+  const [role, setRole] = useState("USER");
+  const [image, setImage] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
+
+  const handleUploadImage = (event) => {
+    if (event.target && event.target.files && event.target.files[0]) {
+      setPreviewImage(URL.createObjectURL(event.target.files[0]));
+      setImage(event.target.files[0]);
+    } else {
+      // setPreviewImage("");
+    }
+  };
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
 
-      <Modal show={show} onHide={handleClose} size="xl" backdrop="static">
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="xl"
+        backdrop="static"
+        className="modal-add-user"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add new user</Modal.Title>
         </Modal.Header>
@@ -26,6 +49,8 @@ const ModalCreateUser = () => {
                 type="email"
                 className="form-control"
                 placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </div>
             <div className="col-md-6">
@@ -34,16 +59,26 @@ const ModalCreateUser = () => {
                 type="password"
                 className="form-control"
                 placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
             </div>
 
             <div className=" col-md-6">
               <label className="from-label">Username</label>
-              <input type="text" className="form-control" />
+              <input
+                type="text"
+                className="form-control"
+                value={username}
+                onChange={(event) => setUserName(event.target.value)}
+              />
             </div>
             <div className="col-md-4">
               <label className="from-label">Role</label>
-              <select className="form-select">
+              <select
+                className="form-select"
+                onChange={(event) => setRole(event.target.value)}
+              >
                 <option selected value="USER">
                   USERS
                 </option>
@@ -51,9 +86,24 @@ const ModalCreateUser = () => {
               </select>
             </div>
 
-            <div className="col-md-12">
-              <label className="from-label">imga</label>
-              <input type="file" />
+            <div className="col-md-12 ">
+              <label className="from-label label-upload" htmlFor="labelUpload">
+                <FcPlus /> Upload File Image
+              </label>
+              <input
+                type="file"
+                id="labelUpload"
+                hidden
+                onChange={(event) => handleUploadImage(event)}
+              />
+            </div>
+
+            <div className="col-md-12 img-preview">
+              {previewImage ? (
+                <img src={previewImage} alt="" />
+              ) : (
+                <span>Preview Image</span>
+              )}
             </div>
           </form>
         </Modal.Body>
